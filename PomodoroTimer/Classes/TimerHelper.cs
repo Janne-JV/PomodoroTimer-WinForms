@@ -30,10 +30,6 @@ namespace PomodoroTimer.Classes
         {
             if (Cycles == 4)
             {
-                Minute = 15;
-            }
-            else if (Cycles == 8)
-            {
                 Minute = 30;
             }
             else

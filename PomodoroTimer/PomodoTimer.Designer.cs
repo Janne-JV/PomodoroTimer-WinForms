@@ -52,7 +52,7 @@
             this.LblTimer.Name = "LblTimer";
             this.LblTimer.Size = new System.Drawing.Size(345, 136);
             this.LblTimer.TabIndex = 0;
-            this.LblTimer.Text = "00:00";
+            this.LblTimer.Text = "25:00";
             // 
             // WorkTimer
             // 
@@ -87,7 +87,7 @@
             this.ClbTasks.FormattingEnabled = true;
             this.ClbTasks.Location = new System.Drawing.Point(360, 39);
             this.ClbTasks.Name = "ClbTasks";
-            this.ClbTasks.Size = new System.Drawing.Size(428, 334);
+            this.ClbTasks.Size = new System.Drawing.Size(428, 324);
             this.ClbTasks.TabIndex = 4;
             // 
             // TxbAddTask
