@@ -30,8 +30,8 @@ namespace PomodoroTimer
                 WorkTimer.Start();
                 BackColor = Color.Red;
                 BtnStartReset.BackColor = Color.White;
-                var workStartNotify = new SoundPlayer(@"c:\Windows\Media\Windows Hardware Insert.wav");
-                workStartNotify.Play();
+                //var workStartNotify = new SoundPlayer(@"c:\Windows\Media\Windows Hardware Insert.wav");
+                //workStartNotify.Play();
                 BtnStartReset.Text = "Reset";
             }
             else
@@ -42,14 +42,21 @@ namespace PomodoroTimer
                 BtnStartReset.BackColor = Color.Red;
                 Classes.TimerHelper.Minute = 25;
                 Classes.TimerHelper.Second = 0;
-                LblTimer.Text = $"{Classes.TimerHelper.Minute}:{Classes.TimerHelper.Second}";
+                LblTimer.Text = $"{Classes.TimerHelper.Minute}:{Classes.TimerHelper.Second}0";
                 BtnStartReset.Text = "Start";
             }
         }
 
         private void WorkTimer_Tick(object sender, EventArgs e)
         {
-            LblTimer.Text = $"{Classes.TimerHelper.Minute}:{Classes.TimerHelper.Second}";
+            if (Classes.TimerHelper.Second < 10)
+            {
+                LblTimer.Text = $"{Classes.TimerHelper.Minute}:0{Classes.TimerHelper.Second}";
+            }
+            else
+            {
+                LblTimer.Text = $"{Classes.TimerHelper.Minute}:{Classes.TimerHelper.Second}";
+            }
 
             if (Classes.TimerHelper.Minute > 0 | Classes.TimerHelper.Second > 0)
             {
@@ -60,8 +67,8 @@ namespace PomodoroTimer
                 Classes.TimerHelper.SetBreakTime();
                 BackColor = Color.Green;
                 BreakTimer.Start();
-                var workStartNotify = new SoundPlayer(@"c:\Windows\Media\Windows Hardware Remove.wav");
-                workStartNotify.Play();
+                //var workStartNotify = new SoundPlayer(@"c:\Windows\Media\Windows Hardware Remove.wav");
+                //workStartNotify.Play();
                 WorkTimer.Stop();
             }
         }
@@ -81,8 +88,8 @@ namespace PomodoroTimer
                 BackColor = Color.Red;
                 Classes.TimerHelper.Minute = 25;
                 WorkTimer.Start();
-                var workStartNotify = new SoundPlayer(@"c:\Windows\Media\Windows Hardware Insert.wav");
-                workStartNotify.Play();
+                //var workStartNotify = new SoundPlayer(@"c:\Windows\Media\Windows Hardware Insert.wav");
+                //workStartNotify.Play();
                 BreakTimer.Stop();
             }
         }
@@ -105,7 +112,7 @@ namespace PomodoroTimer
             {
                 ClbTasks.Items.RemoveAt(ClbTasks.SelectedIndex);
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 MessageBox.Show("No item has been selected!");
             }
